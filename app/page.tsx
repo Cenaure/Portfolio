@@ -5,6 +5,9 @@ import {ProjectsSection} from "@/src/components/sections/Projects/ProjectsSectio
 import {ContactMe} from "@/src/components/sections/ContactMe";
 import {Metadata} from "next";
 
+
+
+
 export default function Home() {
 	return (
 		<div className="bg-zinc-950 max-w-screen-xl mx-auto">
@@ -14,8 +17,11 @@ export default function Home() {
 				<IntroductionSection />
 				<AboutMe />
 				<ProjectsSection />
-				<ContactMe />
 			</main>
+
+			<footer>
+				<ContactMe />
+			</footer>
 		</div>
 	);
 }

@@ -45,7 +45,7 @@ export function ArchitectureDiagram({
 				</header>
 
 				<div className="rounded-2xl border border-white/5 bg-slate-900/70 p-8 backdrop-blur">
-					<div className="space-y-6 font-mono text-sm overflow-scroll">
+					<div className="space-y-6 font-mono text-sm overflow-x-auto">
 						{layers.map((layer, index) => {
 							const colors = COLOR_MAP[layer.color];
 

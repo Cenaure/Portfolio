@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import {Syne, DM_Mono} from "next/font/google"
+import dynamic from "next/dynamic";
+
+const ScrollDownArrow = dynamic(() => import("@/src/components/navigation/ScrollDownArrow"))
 
 const syne = Syne({
 	variable: "--font-syne",
@@ -27,6 +30,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${syne.variable} ${dmMono.variable} antialiased`}>
         {children}
+        <ScrollDownArrow />
+
       </body>
     </html>
   );
