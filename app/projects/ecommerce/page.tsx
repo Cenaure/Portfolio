@@ -3,10 +3,8 @@
 import Link from "next/link";
 import StatisticCounter from "@/src/components/sections/Projects/ProjectPage/StatisticCounter";
 import TechStack from "@/src/components/sections/Projects/ProjectPage/TechStack";
-import {ArchitectureDiagram} from "@/src/components/sections/Projects/ProjectPage/ArchitectureDiagram";
 import Challenge from "@/src/components/sections/Projects/ProjectPage/Challenge";
 import ScreenshotGallery from "@/src/components/sections/Projects/ProjectPage/ScreenshotGallery";
-import {EcommerceArchitecture} from "@/src/components/sections/Projects/ProjectPage/EcommerceArchitecture";
 
 const TECH_STACK = [
 	{category: "Frontend", items: ["Next.js 16", "TypeScript", "Tailwind CSS", "Zustand"]},
