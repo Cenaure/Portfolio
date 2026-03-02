@@ -6,6 +6,7 @@ import TechStack from "@/src/components/sections/Projects/ProjectPage/TechStack"
 import {ArchitectureDiagram} from "@/src/components/sections/Projects/ProjectPage/ArchitectureDiagram";
 import Challenge from "@/src/components/sections/Projects/ProjectPage/Challenge";
 import ScreenshotGallery from "@/src/components/sections/Projects/ProjectPage/ScreenshotGallery";
+import {EcommerceArchitecture} from "@/src/components/sections/Projects/ProjectPage/EcommerceArchitecture";
 
 const TECH_STACK = [
 	{category: "Frontend", items: ["Next.js 16", "TypeScript", "Tailwind CSS", "Zustand"]},
@@ -123,7 +124,7 @@ export default function EcommerceWebsite() {
 				<div className="relative mx-auto max-w-6xl px-6 md:px-10">
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-10">
 						<StatisticCounter value={57} label="API endpoints" suffix="+"/>
-						<StatisticCounter value={7} label="Core modules"/>
+						<StatisticCounter value={19000} label="Lines of code" suffix="+"/>
 						<StatisticCounter value={2} label="Cache layers"/>
 						<StatisticCounter value={100} label="TypeScript" suffix="%"/>
 					</div>
@@ -136,33 +137,9 @@ export default function EcommerceWebsite() {
 			</section>
 
 			{/* ── Architecture diagram placeholder ── */}
-			<section id="architecture" className="relative py-8 pb-24">
-				<ArchitectureDiagram
-					description="Single-server architecture with clear separation between client, API, domain services, and data layer."
-					layers={[
-						{
-							title: "Client",
-							color: "sky",
-							items: ["Next.js App Router", "Zustand Store"],
-						},
-						{
-							title: "API Layer",
-							color: "indigo",
-							items: ["NestJS Controllers", "JWT Middleware", "DTO Validation"],
-						},
-						{
-							title: "Services",
-							color: "violet",
-							items: ["Product Service", "Order Service", "User Service", "Shipping Service", "..."],
-						},
-						{
-							title: "Data",
-							color: "emerald",
-							items: ["MongoDB", "Redis (local)", "Meilisearch"],
-						},
-					]}
-				/>
-			</section>
+			{/*<section id="architecture" className="relative py-8 pb-24">*/}
+			{/*	<EcommerceArchitecture />*/}
+			{/*</section>*/}
 
 			<section className="relative py-24">
 				<div className="absolute inset-y-0 left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-slate-900/50" />

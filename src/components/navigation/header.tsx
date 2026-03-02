@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useCallback, memo } from "react";
+import { useState, useCallback } from "react";
+import GlassSurface from "@/src/components/react bits/GlassSurface";
 
 const links = [
 	{ label: "Portfolio", href: "/" },
@@ -10,136 +11,66 @@ const links = [
 	{ label: "Contact me", href: "#contact" },
 ];
 
-// Выносим статичные части в отдельные компоненты чтобы не ре-рендерить при open
-const DesktopNav = memo(function DesktopNav() {
-	return (
-		<>
-			<div className="hidden md:flex gap-8">
-				{links.map(({ label, href }) => (
-					<Link
-						href={href}
-						key={href}
-						className="relative font-medium text-slate-300
-              hover:text-white hover:-translate-y-px
-              after:absolute after:-bottom-1 after:left-0
-              after:h-px after:w-0 after:bg-gradient-to-r
-              after:from-violet-400 after:to-purple-500
-              after:transition-[width] after:duration-300
-              transition-[color,transform] duration-300"
-					>
-						{label}
-					</Link>
-				))}
-			</div>
-
-			<Link
-				href="#contact"
-				className="hidden md:block px-4 py-2 rounded-full
-          bg-violet-500/10 text-violet-300 border border-violet-400/30
-          hover:bg-violet-500/20 hover:text-white
-          transition-[background-color,color] duration-200"
-			>
-				Hire me
-			</Link>
-		</>
-	);
-});
-
 export function Header() {
 	const [open, setOpen] = useState(false);
-
-	const toggle = useCallback(() => setOpen(o => !o), []);
-	const close = useCallback(() => setOpen(false), []);
+	const toggle = useCallback(() => setOpen((o) => !o), []);
 
 	return (
-		<header className="w-full px-4 md:px-10 py-4 sticky top-4 z-50">
-			<div
-				className="relative w-full rounded-3xl border border-slate-700/50 px-6 py-2"
-				// backdrop-filter только там где реально нужен blur, через style чтобы браузер мог его изолировать
-				style={{
-					background: "rgba(15, 23, 42, 0.85)",
-					// Вместо backdrop-blur-sm через Tailwind — изолируем в contain
-					backdropFilter: "blur(8px)",
-					WebkitBackdropFilter: "blur(8px)",
-					// Даём браузеру подсказку изолировать слой
-					contain: "layout style",
-				}}
-			>
-				<nav className="flex items-center justify-between text-slate-50">
-					<Link href="/" className="text-lg font-bold">
-						Cenaure
-					</Link>
+		// Добавляем z-index и относительное позиционирование контейнеру
+		<header className="sticky top-4 z-[100] px-4">
+			<div className="max-w-5xl mx-auto relative">
 
-					<DesktopNav />
-
-					{/* Burger — transition только нужных свойств */}
-					<button
-						onClick={toggle}
-						className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-						aria-label="Toggle menu"
-						aria-expanded={open}
-					>
-            <span
-	            className="block h-px w-6 bg-slate-300 transition-[transform,opacity] duration-300 will-change-transform"
-	            style={{ transform: open ? "rotate(45deg) translateY(8px)" : undefined }}
-            />
-						<span
-							className="block h-px w-6 bg-slate-300 transition-[transform,opacity] duration-300"
-							style={{ opacity: open ? 0 : undefined }}
-						/>
-						<span
-							className="block h-px w-6 bg-slate-300 transition-[transform,opacity] duration-300 will-change-transform"
-							style={{ transform: open ? "rotate(-45deg) translateY(-8px)" : undefined }}
-						/>
-					</button>
-				</nav>
-
-				{/*
-          Мобильное меню: grid-rows вместо max-h —
-          плавнее и не требует угадывать max-h значение
-        */}
-				<div
-					className="md:hidden grid transition-[grid-template-rows] duration-300"
-					style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+				<GlassSurface
+					className={`!w-full !h-auto ease-in-out ${open ? 'pb-4' : ''}`}
+					displace={0.5}
+					redOffset={20}
+					greenOffset={10}
+					blueOffset={20}
+					opacity={0.9}
+					borderRadius={24}
+					backgroundOpacity={0.5}
 				>
-					<div className="overflow-hidden">
-						<div className="flex flex-col gap-4 border-t border-slate-700/50 pt-4 pb-1 mt-1">
-							{links.map(({ label, href }) => (
-								<Link
-									href={href}
-									key={href}
-									onClick={close}
-									className="text-slate-300 hover:text-white transition-colors duration-200"
-								>
-									{label}
-								</Link>
-							))}
-							<Link
-								href="#contact"
-								onClick={close}
-								className="w-fit px-4 py-2 rounded-full
-                  bg-violet-500/10 text-violet-300 border border-violet-400/30
-                  hover:bg-violet-500/20 hover:text-white
-                  transition-[background-color,color] duration-200"
-							>
+					{/* Внутренний контейнер с padding, чтобы Glass не прилипал к краям */}
+					<div className="px-6 w-full">
+						<nav className="flex items-center gap-5 justify-between text-slate-50">
+							<Link href="/" className="text-lg font-bold">Cenaure</Link>
+
+							{/* Desktop */}
+							<div className="hidden md:flex gap-8 items-center">
+								{links.map(({ label, href }) => (
+									<Link key={href} href={href} className="text-slate-300 hover:text-white transition-colors">
+										{label}
+									</Link>
+								))}
+
+							</div>
+
+							<Link href="#contact" className="hidden md:flex px-4 py-2 rounded-full border border-violet-400 hover:bg-violet-500 transition-all">
 								Hire me
 							</Link>
+							{/* Burger */}
+							<button onClick={toggle} className="md:hidden p-2 text-slate-300">
+								<div className="w-6 h-5 relative">
+									<span className={`absolute h-0.5 w-6 bg-current transition-all ${open ? 'rotate-45 top-2' : 'top-0'}`} />
+									<span className={`absolute h-0.5 w-6 bg-current top-2 transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`} />
+									<span className={`absolute h-0.5 w-6 bg-current transition-all ${open ? '-rotate-45 top-2' : 'top-4'}`} />
+								</div>
+							</button>
+						</nav>
+
+						{/* Mobile Menu - плавно увеличивает высоту GlassSurface */}
+						<div className={`md:hidden overflow-hidden transition-all duration-300 ${open ? "max-h-64 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
+							<div className="flex flex-col gap-4 border-t border-white/10 pt-4">
+								{links.map(({ label, href }) => (
+									<Link key={href} href={href} onClick={() => setOpen(false)} className="text-slate-300 hover:text-white">
+										{label}
+									</Link>
+								))}
+							</div>
 						</div>
 					</div>
-				</div>
+				</GlassSurface>
 
-				{/*
-          Декоративный градиент: убираем blur-2xl — это второй слой блюра.
-          Заменяем на opacity gradient без blur
-        */}
-				<div
-					aria-hidden="true"
-					className="absolute inset-0 -z-10 rounded-3xl pointer-events-none"
-					style={{
-						background:
-							"linear-gradient(to right, rgba(139,92,246,0.15), rgba(168,85,247,0.07), transparent)",
-					}}
-				/>
 			</div>
 		</header>
 	);

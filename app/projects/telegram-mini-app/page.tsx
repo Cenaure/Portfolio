@@ -121,28 +121,28 @@ export default function TelegramMiniApp() {
 			</section>
 
 			{/* ── Architecture diagram ── */}
-			<section id="architecture" className="relative py-8 pb-24">
-				<ArchitectureDiagram
-					description="Serverless architecture with no dedicated API. Next.js Server Actions handle all game logic, communicating directly with MongoDB and the Telegram Bot API."
-					layers={[
-						{
-							title: "Client",
-							color: "sky",
-							items: ["Next.js App Router", "Telegram Mini App SDK", "Zustand Store", "Server actions"],
-						},
-						{
-							title: "External APIs",
-							color: "violet",
-							items: ["Telegram Bot API", "Stars Payment Webhooks"],
-						},
-						{
-							title: "Data",
-							color: "emerald",
-							items: ["MongoDB"],
-						},
-					]}
-				/>
-			</section>
+			{/*<section id="architecture" className="relative py-8 pb-24">*/}
+			{/*	<ArchitectureDiagram*/}
+			{/*		description="Serverless architecture with no dedicated API. Next.js Server Actions handle all game logic, communicating directly with MongoDB and the Telegram Bot API."*/}
+			{/*		layers={[*/}
+			{/*			{*/}
+			{/*				title: "Client",*/}
+			{/*				color: "sky",*/}
+			{/*				items: ["Next.js App Router", "Telegram Mini App SDK", "Zustand Store", "Server actions"],*/}
+			{/*			},*/}
+			{/*			{*/}
+			{/*				title: "External APIs",*/}
+			{/*				color: "violet",*/}
+			{/*				items: ["Telegram Bot API", "Stars Payment Webhooks"],*/}
+			{/*			},*/}
+			{/*			{*/}
+			{/*				title: "Data",*/}
+			{/*				color: "emerald",*/}
+			{/*				items: ["MongoDB"],*/}
+			{/*			},*/}
+			{/*		]}*/}
+			{/*	/>*/}
+			{/*</section>*/}
 
 			{/* ── Key features ── */}
 			<section className="py-24 mx-auto max-w-6xl px-6 md:px-10">

@@ -24,21 +24,6 @@ export default function ProjectPreview({ link }: { link?: string }) {
 
 				{/* Glow */}
 				<div className="absolute w-40 h-40 rounded-full bg-sky-500/10 blur-2xl" />
-
-				{/* Logo mark */}
-				<svg
-					width="56"
-					height="56"
-					viewBox="0 0 56 56"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-					className="relative z-10 opacity-30"
-				>
-					<rect x="4" y="4" width="20" height="20" rx="4" fill="white" />
-					<rect x="32" y="4" width="20" height="20" rx="4" fill="white" />
-					<rect x="4" y="32" width="20" height="20" rx="4" fill="white" />
-					<rect x="32" y="32" width="20" height="20" rx="4" fill="white" opacity="0.4" />
-				</svg>
 			</div>
 		);
 	}
@@ -48,7 +33,7 @@ export default function ProjectPreview({ link }: { link?: string }) {
 			className="
         relative h-64 rounded-4xl
         bg-gradient-to-br from-slate-800 to-slate-900
-        flex items-center justify-center
+        flex items-center justify-center shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]
       "
 		>
 			<Image src={link} alt="preview" objectFit="contain" layout="fill" />

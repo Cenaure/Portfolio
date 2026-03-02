@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ProjectCard from "@/src/components/sections/Projects/Child/ProjectCard";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
