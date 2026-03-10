@@ -4,6 +4,7 @@ import {AboutMe} from "@/src/components/sections/AboutMe";
 import {ProjectsSection} from "@/src/components/sections/Projects/ProjectsSection";
 import {ContactMe} from "@/src/components/sections/ContactMe";
 import {Metadata} from "next";
+import {Footer} from "@/src/components/sections/Footer";
 
 
 
@@ -19,8 +20,10 @@ export default function Home() {
 				<ProjectsSection />
 			</main>
 
+
 			<footer>
 				<ContactMe />
+				<Footer />
 			</footer>
 		</div>
 	);

@@ -19,7 +19,7 @@ export function IntroductionSection() {
 								height={250}
 								src="/avatar.webp"
 								alt="Maksym Hotvianskyi"
-								className="relative z-10 object-cover rounded-3xl w-44 h-44 md:w-[250px] md:h-[250px]"
+								className="relative z-10 object-cover rounded-3xl w-44 h-44 md:w-[250px] md:h-[250px] shadow-4xl"
 							/>
 						</Link>
 					</div>
@@ -60,7 +60,7 @@ export function IntroductionSection() {
 
 			</section>
 			<div className="top-0 left-0 w-full hidden md:block absolute -z-1 opacity-80">
-				<ColorBends parallax={0.5} colors={["#571ac1", "#422e38", "#4e202b", "#2d3b22", "#64916a"]} rotation={120} transparent={true} speed={0.08}/>
+				<ColorBends parallax={0.5} colors={["#571ac1", "#422e38", "#4e202b", "#2d3b22", "#64916a"]} rotation={120} transparent={true} speed={0.08} scale={0.8}/>
 			</div>
 		</>
 	);

@@ -1,4 +1,5 @@
 import ProjectCard from "@/src/components/sections/Projects/Child/ProjectCard";
+import {Badge} from "@/src/components/sections/Projects/Child/TechBadges";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -15,6 +16,7 @@ export interface ProjectProps {
 	status?: string;
 	previewLink: string;
 	reverse?: boolean;
+	badges: Badge[];
 }
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -23,7 +25,9 @@ const PROJECTS: ProjectProps[] = [
 	{
 		title: "E-commerce platform",
 		description:
-			"A full-stack e-commerce project focused on scalability, clear architecture and real-world business logic. The project is still in development, but it already demonstrates how I approach complex systems.",
+			"Full-stack e-commerce application with user authentication, \n" +
+			"product catalog, shopping cart, admin dashboard, and Nova Post integration. \n" +
+			"Focused on clean architecture and security best practices.",
 		tags: [
 			{ label: "Modular architecture (frontend + backend)" },
 			{ label: "Advanced filtering, pagination & caching" },
@@ -32,9 +36,35 @@ const PROJECTS: ProjectProps[] = [
 		],
 		href: "/projects/ecommerce",
 		linkLabel: "View case study",
-		status: "In progress",
+		status: "In development",
 		previewLink: "",
 		reverse: false,
+		badges: [
+			{
+				label: "TypeScript",
+				color: "#007acc"
+			},
+			{
+				label: "Next.js",
+				color: "#e8e8e8"
+			},
+			{
+				label: "React",
+				color: "#61DAFB"
+			},
+			{
+				label: "Tailwind CSS",
+				color: "#38bdf8"
+			},
+			{
+				label: "Nest.js",
+				color: "#DF234F"
+			},
+			{
+				label: "MongoDB",
+				color: "#439934"
+			}
+		]
 	},
 	{
 		title: "Telegram Mini App",
@@ -51,6 +81,24 @@ const PROJECTS: ProjectProps[] = [
 		status: "",
 		previewLink: "/pasko.webp",
 		reverse: true,
+		badges: [
+			{
+				label: "TypeScript",
+				color: "#007acc"
+			},
+			{
+				label: "Next.js",
+				color: "#e8e8e8"
+			},
+			{
+				label: "React",
+				color: "#61DAFB"
+			},
+			{
+				label: "MongoDB",
+				color: "#439934"
+			},
+		]
 	},
 ];
 
@@ -65,7 +113,7 @@ export function ProjectsSection() {
 			<div className="relative mx-auto max-w-6xl px-6 md:px-10 text-slate-200">
 				<h2 className="text-4xl font-bold mb-16">Projects</h2>
 
-				<div className="space-y-20">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					{PROJECTS.map((project) => (
 						<ProjectCard key={project.href} {...project} />
 					))}

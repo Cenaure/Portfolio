@@ -11,8 +11,7 @@ export default function ProjectLink({
 }) {
 	return (
 		<div className="flex gap-4 items-center">
-			<Link
-				href={href}
+			<div
 				className="
           px-5 py-2 rounded-full
           bg-violet-500/10 text-violet-300
@@ -22,7 +21,7 @@ export default function ProjectLink({
         "
 			>
 				{label}
-			</Link>
+			</div>
 			{status && (
 				<span className="text-slate-500 text-sm">{status}</span>
 			)}
