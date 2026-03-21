@@ -10,6 +10,7 @@ import Link from "next/link";
 
 export default function ProjectCard({
 	                                    title,
+																			subtitle,
 	                                    description,
 	                                    tags,
 	                                    href,
@@ -26,7 +27,11 @@ export default function ProjectCard({
 				spotlightColor="rgba(50, 29, 133, 0.2)"
 			>
 				<div className="w-full min-h-16 bg-gradient-to-r from-violet-950/60 to-cyan-950 px-5 py-4 md:px-8 md:py-5 flex items-center justify-between gap-3">
-					<h3 className="text-xl md:text-3xl font-semibold">{title}</h3>
+					<div>
+						<h3 className="text-xl md:text-3xl font-semibold">{title}</h3>
+						<p className="text-lg text-indigo-400/70">{subtitle}</p>
+					</div>
+
 					<SquareArrowOutUpRight className="shrink-0 w-5 h-5"/>
 				</div>
 				<div className="p-5 md:p-8 flex flex-col">

@@ -9,6 +9,7 @@ export interface ProjectTag {
 
 export interface ProjectProps {
 	title: string;
+	subtitle: string;
 	description: string;
 	tags: ProjectTag[];
 	href: string;
@@ -23,7 +24,8 @@ export interface ProjectProps {
 
 const PROJECTS: ProjectProps[] = [
 	{
-		title: "E-commerce platform",
+		title: "LisMarket",
+		subtitle: "E-commerce platform",
 		description:
 			"Full-stack e-commerce application with user authentication, \n" +
 			"product catalog, shopping cart, admin dashboard, and Nova Post integration. \n" +
@@ -67,7 +69,8 @@ const PROJECTS: ProjectProps[] = [
 		]
 	},
 	{
-		title: "Telegram Mini App",
+		title: "Pasko Coin",
+		subtitle: "Telegram Mini App",
 		description:
 			"A Telegram Mini App built as an interactive product with real-time updates and server-side logic. The focus is on performance, UX and platform constraints.",
 		tags: [
