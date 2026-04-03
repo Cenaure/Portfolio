@@ -211,7 +211,7 @@ export default function EcommerceWebsite() {
 			<footer className="relative border-t border-white/5 py-12">
 				<div className="mx-auto max-w-6xl px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
 					<Link
-						href="/#projects"
+						href="/public#projects"
 						className="text-slate-400 hover:text-white transition-colors text-sm flex items-center gap-2"
 					>
 						← Back to projects

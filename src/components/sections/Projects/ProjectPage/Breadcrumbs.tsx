@@ -13,11 +13,11 @@ export default function Breadcrumbs() {
 
 	return (
 		<div className="mx-auto max-w-6xl px-6 md:px-10 h-14 flex items-center gap-3 text-sm">
-			<Link href="/" className="text-slate-400 hover:text-white transition-colors">
+			<Link href="/public" className="text-slate-400 hover:text-white transition-colors">
 				Home
 			</Link>
 			<span className="text-slate-700">/</span>
-			<Link href="/#projects" className="text-slate-400 hover:text-white transition-colors">
+			<Link href="/public#projects" className="text-slate-400 hover:text-white transition-colors">
 				Projects
 			</Link>
 			<span className="text-slate-700">/</span>

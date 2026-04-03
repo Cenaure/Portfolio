@@ -29,7 +29,7 @@ export function Header() {
 	const navContent = (
 		<div className="px-6 w-full">
 			<nav className="flex items-center gap-5 justify-between text-slate-50">
-				<Link href="/" className="text-lg font-bold">Cenaure</Link>
+				<Link href="/public" className="text-lg font-bold">Cenaure</Link>
 
 				{/* Desktop */}
 				<div className="hidden md:flex gap-8 items-center">
